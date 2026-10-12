@@ -57,7 +57,7 @@ function renderHud() {
   const { xp, current, pct } = rankState();
   document.getElementById("rank").textContent = current.name;
   document.getElementById("quest-count").textContent = String(seen.size);
-  document.getElementById("xp-label").textContent = `${xp} XP · ${current.name}`;
+  document.getElementById("xp-label").textContent = `${xp} XP, ${current.name}`;
   document.getElementById("xp-fill").style.width = `${pct}%`;
 }
 
@@ -138,7 +138,7 @@ function openModal(t) {
   renderGrid();
   sheet.innerHTML = `
     <div class="sheet-top">
-      <span>quest ${escapeHtml(t.id)} · +${xpFor(t.id)} xp</span>
+      <span>quest ${escapeHtml(t.id)}, +${xpFor(t.id)} xp</span>
       <button class="close" type="button" aria-label="Κλείσιμο">×</button>
     </div>
     <h2>${escapeHtml(t.titleEl)}</h2>
