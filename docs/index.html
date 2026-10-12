@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THESIS BOARD — Ιόνιο Πανεπιστήμιο</title>
+  <meta name="description" content="Διαθέσιμα θέματα πτυχιακής εργασίας, Τμήμα Πληροφορικής, Ιόνιο Πανεπιστήμιο." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="boot" id="boot" aria-hidden="true">
+    <pre id="boot-text">loading catalog<span class="cursor">_</span></pre>
+  </div>
+
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><span class="dot"></span> ionio / informatics / thesis</div>
+      <nav>
+        <a href="https://github.com/dr-skaragiannis/Thesis" target="_blank" rel="noopener">repo</a>,
+        <a href="https://welfare.euni.ionio.gr/" target="_blank" rel="noopener">δήλωση</a>
+      </nav>
+    </header>
+
+    <div class="hud" aria-live="polite">
+      <div class="hud-meta">
+        rank <b id="rank">unranked</b>, quests <b id="quest-count">0</b>
+      </div>
+      <div>
+        <div class="xp-label"><span id="xp-label">0 XP</span> / next rank</div>
+        <div class="xp-track" aria-hidden="true"><div class="xp-fill" id="xp-fill"></div></div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">quest log, undergraduate research</div>
+      <h1>THESIS<br /><span class="glitch">BOARD</span></h1>
+      <p class="lede">
+        Κατάλογος διαθέσιμων θεμάτων πτυχιακής για το Τμήμα Πληροφορικής του Ιονίου Πανεπιστημίου.
+      </p>
+      <div class="stats">
+        <div class="stat"><b id="stat-count">--</b><span>quests</span></div>
+        <div class="stat"><b>12</b><span>ECTS, solo</span></div>
+        <div class="stat"><b>ΔΕΠ</b><span>unlock required</span></div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <div class="search">
+        <label class="visually-hidden" for="search" style="position:absolute;left:-9999px">Αναζήτηση</label>
+        <input id="search" type="search" placeholder="filter quests: LLM, ICS, phishing, Android…" autocomplete="off" />
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <p class="count-line" id="count"></p>
+    <div class="grid" id="grid"></div>
+
+    <footer>
+      Τμήμα Πληροφορικής, Ιόνιο Πανεπιστήμιο, Κανονισμός ΠΕ 17/12/2024.
+      Πλήρεις εκφωνήσεις στο
+      <a href="https://github.com/dr-skaragiannis/Thesis">github.com/dr-skaragiannis/Thesis</a>.
+      Δεν προσφέρονται θέματα με ένδειξη No.
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
