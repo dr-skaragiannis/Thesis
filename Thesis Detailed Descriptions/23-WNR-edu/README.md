@@ -1,4 +1,4 @@
-# 23. WNR-edu — Εκπαιδευτικό Cyber Range εξ ολοκλήρου στον Φυλλομετρητή
+# 23. WNR-edu — Εκπαιδευτικό κυβερνοπεδίο εξ ολοκλήρου στον περιηγητή ιστού
 ### WNR-edu: A Browser-Native Cyber Range with Diagnostic Lab Validation and Educator Analytics
 
 ## Στοιχεία Έργου
