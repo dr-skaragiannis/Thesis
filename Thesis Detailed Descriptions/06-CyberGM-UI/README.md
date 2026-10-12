@@ -1,32 +1,35 @@
-# 6. CyberGM-UI — Κονσόλα LLM Game Master για Προσομοιώσεις Δοκιμών Διείσδυσης
-### CyberGM-UI: An LLM Game-Master Web Console for Orchestrating Penetration-Testing Simulations
+﻿# 6. CyberGM-UI — Διεπαφή Game Master για Gamified Κυβερνοασφάλεια (TUI/WEB)
+
+### CyberGM-UI: Game Master Interface for Gamified Cybersecurity Tabletop/Interactive Scenarios
 
 ## Στοιχεία Έργου
-- **Πηγαίος φάκελος:** `CyberGM-UI/`
-- **Θεματική περιοχή:** Κυβερνοασφάλεια, προσομοιώσεις και κυβερνοπεδίο (cyber range), μεγάλα γλωσσικά μοντέλα, ανθρώπινος παράγοντας
-- **Τεχνολογίες:** Web κονσόλα, Express γέφυρα προς `opencode serve`, LLM agent/skill, SSE, σενάρια CyberCore και tabletop
+
+- **Πηγαίος φάκελος:** CyberGM-UI/
+- **Θεματική περιοχή:** Serious games, gamified cybersecurity, interactive fiction/Gamemaster tools, scenario authoring, TTRPG-inspired learning
+- **Τεχνολογίες:** React/TypeScript, Vite, TailwindCSS, state management, JSON scenario format, real-time or turn-based UI, optional WebSocket
 - **Ενδεικτικός αριθμός φοιτητών:** 1–2
 
 ## Εκφώνηση Διπλωματικής Εργασίας
 
-Σε άσκηση δοκιμών διείσδυσης (penetration testing) ο εκπαιδευτής κρατά ταυτόχρονα το σενάριο, την πίεση του αντιπάλου και την ανατροφοδότηση. Η εργασία σχεδιάζει και υλοποιεί μια διαδικτυακή κονσόλα που λειτουργεί ως «Game Master» με τη βοήθεια μεγάλου γλωσσικού μοντέλου (LLM) και οδηγεί τέτοιες ασκήσεις σε προσομοιωμένο περιβάλλον, όπως το CyberCore. Αναλύεται ο ρόλος του εκπαιδευτή και προσδιορίζεται ποιες λειτουργίες μπορούν να αυτοματοποιηθούν ή να υποστηριχθούν από σύστημα τεχνητής νοημοσύνης.
+Το **CyberGM-UI** είναι μια διεπαφή τύπου «Game Master» (GM) σχεδιασμένη για τη διεξαγωγή gamified σεναρίων κυβερνοασφάλειας. Στόχος είναι να επιτρέψει σε έναν εκπαιδευτή/GM να διευθύνει δυναμικά ένα σενάριο (incidents, puzzles, role-play) ενώ οι συμμετέχοντες λαμβάνουν πληροφορίες, λαμβάνουν αποφάσεις και βλέπουν τις συνέπειες σε πραγματικό χρόνο.
 
-Η κονσόλα δεν είναι απλό chat: ο περιηγητής μιλά σε γέφυρα Express που συνδέεται με τοπικό πράκτορα (`opencode serve`) και δεξιότητα Game Master. Παρακολουθεί ενέργειες, παράγει γεγονότα, υποδείξεις και αντιδράσεις αντιπάλου μέσω ροής SSE. Υποστηρίζει τόσο προσομοίωση δοκιμών διείσδυσης (CyberCore) όσο και επιτραπέζια εκστρατεία. Η λογική σεναρίου χωρίζεται από το μοντέλο, οι ενέργειες εκτελούνται μόνο σε απομονωμένο περιβάλλον, χωρίς οδηγίες για πραγματικούς στόχους.
+Η εργασία επικεντρώνεται στο **σχεδιασμό UX για GM workflows**: authoring σεναρίων, διαχείριση NPCs, clues, timers, injects, consequences matrix, hints, scoring. Τα σενάρια αποθηκεύονται σε δομημένο JSON (modular), επιτρέποντας επαναχρησιμοποίηση και επέκταση χωρίς αλλαγή κώδικα.
 
-Πρέπει να αντιμετωπιστούν η συνέπεια και η ορθότητα των παραγόμενων σεναριακών γεγονότων, ο έλεγχος παραμέτρων του μοντέλου (θερμοκρασία, προσαρμογή προτροπών), η ανθεκτικότητα σε «παραπλάνηση» και το ενδεχόμενο το σύστημα να παράγει επικίνδυνες ή παραπλανητικές οδηγίες. Η αξιολόγηση γίνεται με σενάρια και, ιδανικά, με χρήστες.
+Βασικές λειτουργίες: scenario library, act/scene structure, branching (conditional branches), triggers/events, resource tracking (budget/time/visibility), log of actions (audit trail), reveal/hide clues, inject events based on time/player choices. Το UI εστιάζει σε σαφή οπτικοποίηση κατάστασης (state board) για γρήγορη λήψη αποφάσεων από τον GM.
 
-Η αρχιτεκτονική και το μοντέλο αλληλεπίδρασης τεκμηριώνονται. Συζητούνται δεοντολογία, ιδιωτικότητα και κατάχρηση, και προτείνονται επεκτάσεις όπως προσαρμοστική δυσκολία, καταγραφή συνεδριών για ανάλυση και ενσωμάτωση μετρικών μάθησης.
+Η προσέγγιση συνδυάζει στοιχεία από **interactive fiction**, **tabletop RPGs** (GM screen metaphor) και **serious games**. Δίνεται έμφαση σε διδακτικά κριτήρια: σαφή learning objectives ανά scene, aligned consequences, debrief prompts μετά από κάθε κρίσιμο σημείο.
 
-## Αξιολόγηση και σημαντικά αποτελέσματα
+## Αξιολόγηση και Σημαντικά Αποτελέσματα
 
-**Πώς διεξάγεται.** Τα σενάρια εκτελούνται σε απομονωμένο περιβάλλον: ελέγχονται η συνέπεια των γεγονότων, η συμμόρφωση με τους κανόνες του σεναρίου και το ότι δεν παράγονται οδηγίες για πραγματικούς στόχους. Ιδανικά ακολουθεί μικρή μελέτη με εκπαιδευτές και ασκούμενους (ευχρηστία, αντιληπτή ποιότητα ανατροφοδότησης).
+**Μεθοδολογία.** Usability testing με εκπαιδευτές/φοιτητές, heuristic evaluation (Nielsen), think-aloud, SUS. Case studies με 2–3 σενάρια (incident response, phishing triage, access control).
 
-**Αποτελέσματα που μετράνε.** Ποσοστό συνεπών ενεργειών Game Master, αστοχίες και παραισθήσεις, χρόνος απόκρισης και τεκμηρίωση των πολιτικών ασφαλείας του μοντέλου.
+**Μετρήσιμα αποτελέσματα.** SUS ≥ 70, low cognitive load (NASA-TLX), μειωμένος χρόνος setup/run ανά σενάριο, υψηλή αντιληπτή ευκολία χρήσης για GM, ικανοποιητική κάλυψη GM needs. Τεκμηρίωση επαναχρησιμοποίησης σεναρίων.
 
-## Ενδεικτικές Δημοσιεύσεις (πραγματικές, χωρίς arXiv)
-1. Yamin, M. M., Katt, B., Gkioulos, V. "Cyber ranges and security testbeds: Scenarios, functions, tools and architecture." *Computers & Security* (Elsevier), 2020.
-2. Chouliaras, N., et al. "Cyber Ranges and TestBeds for Education, Training, and Research." *Applied Sciences* (MDPI), 2021.
-3. Švábenský, V., Čeleda, P., Vykopal, J., Brišáková, S. "Cybersecurity knowledge and skills taught in Capture the Flag challenges." *Computers & Security* (Elsevier), 2021.
-4. "Toward Effective Evaluation of Cyber Defense: Threat-Based Adversary Emulation Approach." *IEEE Access*, 2023.
-5. Weiss, R., et al. "Teaching Cybersecurity Using Guided Inquiry Collaborative Learning." *IEEE Frontiers in Education (FIE)*, 2019.
-6. Vaswani, A., et al. "Attention Is All You Need." *NeurIPS*, 2017.
+## Ενδεικτικές Δημοσιεύσεις
+
+1. Fullerton, T. *Game Design Workshop*. CRC Press, 2008.
+2. Plass et al. *Foundations of Game-Based Learning*. *Educational Psychologist*, 2015.
+3. Connolly et al. *Computers & Education*, 2012.
+4. Nielsen, J. *Usability Engineering*. Morgan Kaufmann, 1993.
+5. Švábenský et al. *Computers & Security*, 2021.
+6. Deterding et al. *MindTrek*, 2011.

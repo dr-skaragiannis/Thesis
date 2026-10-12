@@ -1,32 +1,37 @@
-# 4. Card-Game-Auditor — Μετρική Ανάλυση και Διόρθωση Παιχνιδιού Καρτών Κυβερνοασφάλειας (KILLCHAIN)
+﻿# 4. Card-Game-Auditor — Ανάλυση και Βελτίωση Παιχνιδιού Καρτών Κυβερνοασφάλειας με Αυτόματο Ελεγκτή Δεξιοτήτων
+
 ### Card-Game-Auditor: Measuring and Repairing a Cybersecurity Card Game with a Deterministic Skills Auditor
 
 ## Στοιχεία Έργου
-- **Πηγαίοι φάκελοι:** `Card-Game-Auditor/` (εφαρμογή Killchain Laboratory και skills S1–S17), `Paper/` (εκτενές χειρόγραφο), `Card-Game-Auditor/paper/` (σύντομο IEEE-style)
-- **Θεματική περιοχή:** Παιχνίδια σοβαρού σκοπού, εκπαίδευση στην κυβερνοασφάλεια, ανάλυση ισορροπίας παιχνιδιών
-- **Τεχνολογίες:** React, TypeScript, Vite, ντετερμινιστική μηχανή, φορητή βιβλιοθήκη skills, μαζικές προσομοιώσεις με σπόρο
-- **Ενδεικτικός αριθμός φοιτητών:** 1–2
+
+- **Πηγαίος φάκελος:** Card-Game-Auditor/
+- **Θεματική περιοχή:** Gamification, serious games, cybersecurity education, assessment & alignment (skills mapping), game analytics, instructional design
+- **Τεχνολογίες:** TypeScript/Node, JSON-LD/schema mapping, deterministic rules/auditor, spreadsheet/JSON export, coverage/imbalance analysis
+- **Ενδεικτικός αριθμός φοιτητών:** 1
 
 ## Εκφώνηση Διπλωματικής Εργασίας
 
-Ένα εκπαιδευτικό παιχνίδι καρτών με θέμα την κυβερνοασφάλεια και την αλυσίδα επίθεσης (KILLCHAIN) αξίζει να βελτιωθεί μόνο εφόσον γνωρίζουμε πού χάνει την ισορροπία του. Η εργασία μελετά τους κανόνες, το σύνολο των καρτών και τους μηχανισμούς, μοντελοποιεί τον χώρο καταστάσεων και εξετάζει πώς οι αποφάσεις των παικτών επηρεάζουν την ισορροπία, την εκπαιδευτική αξία και τα μαθησιακά αποτελέσματα.
+Η εργασία ασχολείται με τον **ποσοτικό έλεγχο και τη συστηματική βελτίωση** ενός υπάρχοντος παιχνιδιού καρτών για την κυβερνοασφάλεια. Συγκεκριμένα, αναπτύσσεται και αξιολογείται το **Card-Game-Auditor**: ένα εργαλείο αυτόματου ελέγχου (deterministic skills auditor) που μετρά πόσο καλά το περιεχόμενο ενός card game καλύπτει προκαθορισμένους μαθησιακούς στόχους και δεξιότητες.
 
-Αναπτύσσεται ντετερμινιστικός ελεγκτής και φορητή βιβλιοθήκη skills (ενδεικτικά S1–S17), εκτελέσιμη και από LLM, ώστε οι ίδιοι έλεγχοι να μπορούν να εφαρμοστούν και σε άλλα παιχνίδια. Μέσω αναπαραγώγιμων προσομοιώσεων και πρακτόρων-στρατηγικών αξιολογούνται ισορροπία, κυρίαρχες στρατηγικές και άχρηστες κάρτες, το παιχνίδι αναφοράς είναι το KILLCHAIN (ενδεικτικά 45 κάρτες) σε διαδικτυακό εργαστήριο (React/Vite). Οι μετρήσεις (ρυθμός νίκης, διάρκεια, κατανομές, ευαισθησία σε παραλλαγές) οδηγούν σε τεκμηριωμένες επιδιορθώσεις.
+Το βασικό πρόβλημα που αντιμετωπίζεται είναι η ασυμφωνία μεταξύ σχεδίασης (design intent) και πραγματικής κάλυψης (content coverage): σε serious games είναι συχνό οι κάρτες, οι δράσεις ή τα γεγονότα να μην κατανέμονται ισορροπημένα σε γνωστικά/δεξιολογικά πεδία, δημιουργώντας κενά ή υπερκάλυψη. Ο auditor στοχεύει να κάνει αυτή την ευθυγράμμιση μετρήσιμη, επαναλήψιμη και διαφανή.
 
-Η πειραματική μεθοδολογία οφείλει να είναι αυστηρή: υποθέσεις, δείκτες, σταθερός σπόρος, στατιστική σημαντικότητα. Η αναπαραγωγιμότητα είναι προϋπόθεση. Ξεχωρίζονται δύο κείμενα: σύντομο άρθρο (π.χ. διαδικαστική επιβολή έναντι κατανομής πόρων) και εκτενές χειρόγραφο πειραμάτων.
+Η προσέγγιση βασίζεται σε **συντακτική αντιστοίχιση δεξιοτήτων (skills mapping)**: κάθε κάρτα/στοιχείο του παιχνιδιού περιγράφεται με ένα μικρό σύνολο ικανών (skills/tags) με σαφήνεια, βάσει ενός καθορισμένου λεξικού (controlled vocabulary). Ο deterministic auditor υπολογίζει μετρήσεις κάλυψης (coverage), κατανομής βάρους (weight distribution), ανισορροπίας (imbalance), επαναληψιμότητας (redundancy), καθώς και ανιχνεύει κενά (gaps) και πιθανές ασυμφωνίες (misalignments). Όλα τα αποτελέσματα εξάγονται σε JSON/CSV για αναπαραγωγιμότητα και τεκμηρίωση.
 
-Τα τεχνικά ευρήματα συνδέονται με την εκπαιδευτική διάσταση: πώς ο auditor βελτιώνει τη μαθησιακή εμπειρία και την κάλυψη φάσεων kill chain. Συζητούνται περιορισμοί και επεκτάσεις (ανθρώπινοι παίκτες, άλλοι κανόνες).
+Η μεθοδολογία περιλαμβάνει: (α) αποσυμπίεση/μοντελοποίηση της τράπουλας (deck model), (β) ορισμό μαθησιακού πλαισίου-στόχου (target skills matrix) — π.χ. ευθυγράμμιση με γνωστά πλαίσια (MITRE ATT&CK, NICE/NIST, CyBOK ή διδακτικούς στόχους μαθήματος), (γ) κανόνες auditor (deterministic, χωρίς τυχαιότητα) για υπολογισμό δεικτών, (δ) προτάσεις διόρθωσης/ανακατανομής (repair suggestions) με αιτιολόγηση. Η «διόρθωση» (repair) δεν αλλάζει αυθαίρετα το gameplay, αλλά προτείνει συγκεκριμένες τροποποιήσεις (αφαίρεση/προσθήκη/αναταξινόμηση καρτών) με τεκμηριωμένη επίδραση στα metrics.
 
-## Αξιολόγηση και σημαντικά αποτελέσματα
+Στόχος είναι να καταστεί η αξιολόγηση περιεχομένου του serious game **αντικειμενική και επαναλήψιμη**, παρέχοντας στον σχεδιαστή ένα εργαλείο ανάλυσης (design analytics) που συνδέει το παιχνίδι με μετρήσιμα μαθησιακά αποτελέσματα.
 
-**Πώς διεξάγεται.** Οι προσομοιώσεις τρέχουν με σταθερό σπόρο και μεγάλο αριθμό παρτίδων πριν και μετά τις διορθώσεις κανόνων. Μετρώνται ρυθμοί νίκης ανά στρατηγική, διάρκεια, κατανομή χρήσης καρτών και ευαισθησία σε παραλλαγές. Οι προτεινόμενες επιδιορθώσεις επαναλαμβάνονται στο ίδιο πρωτόκολλο.
+## Αξιολόγηση και Σημαντικά Αποτελέσματα
 
-**Αποτελέσματα που μετράνε.** Ποσοτικοποιημένες ανισορροπίες (κυρίαρχες και άχρηστες κάρτες), πίνακες πριν–μετά τις διορθώσεις, και σύνδεση των μετρικών με την εκπαιδευτική αξία (π.χ. κάλυψη φάσεων kill chain).
+**Μεθοδολογία.** Αξιολόγηση μέσω case study: εφαρμογή του auditor σε υπάρχουσα τράπουλα Card-Game-Auditor/ ή σε συνθετικά decks. Μετρώνται: coverage ratio ανά θεματική, skill balance (Gini/variance), gap count, redundancy, distribution entropy. Πραγματοποιείται sensitivity analysis για να ελεγχθεί σταθερότητα των μετρικών, καθώς και expert review (instructional/game design) για την εγκυρότητα των προτάσεων repair. Ιδιαίτερη έμφαση σε determinism (ίδια είσοδος → ίδια έξοδος).
+
+**Μετρήσιμα αποτελέσματα.** Αναμένονται: πίνακας κάλυψης πριν/μετά προτεινόμενες διορθώσεις, μείωση ανισορροπίας κατανομής, πλήρωση σημαντικών κενών χωρίς υπερβολική επαναληψιμότητα, αριθμός εφαρμόσιμων repair suggestions με αιτιολόγηση, καθώς και τεκμηρίωση ότι ο auditor είναι επαναλήψιμος, διαφανής και χρήσιμος για σχεδιαστική απόφαση (design decision support).
 
 ## Ενδεικτικές Δημοσιεύσεις (πραγματικές, χωρίς arXiv)
-1. Ng, A., Hasan, A. "Cybersecurity serious games development: A systematic review." *Computers & Security* (Elsevier), 2024.
-2. Hendrix, M., Al-Sherbaz, A., Bloom, V. "Game Based Cyber Security Training: Are Serious Games Suitable for Cyber Security Training?" *International Journal of Serious Games*, 2016.
-3. Nagarajan, A., et al. "Exploring Game-Based Learning for Cybersecurity Education: A Systematic Literature Review." *ACM Transactions on Computing Education*, 2023.
-4. Yamin, M. M., Katt, B., Gkioulos, V. "Cyber ranges and security testbeds: Scenarios, functions, tools and architecture." *Computers & Security* (Elsevier), 2020.
-5. Chouliaras, N., et al. "Cyber Ranges and TestBeds for Education, Training, and Research." *Applied Sciences* (MDPI), 2021.
-6. Iosif, A.-C., Lechner, U., et al. "Serious Game for Industrial Cybersecurity: Experiential Learning through Code Review." *IEEE CSEE&T*, 2024.
+
+1. Deterding, S., et al. "From game design elements to gamefulness: defining 'gamification'." *MindTrek*, 2011.
+2. Plass, J. L., Homer, B. D., Kinzer, C. K. "Foundations of Game-Based Learning." *Educational Psychologist*, 2015.
+3. Yusoff, A., Crowder, R., Gilbert, L., Wills, G. "A Conceptual Framework for Serious Games." *ICICT*, IEEE, 2009.
+4. Connolly, T. M., Boyle, E. A., MacArthur, E., Hainey, T., Boyle, J. M. "A systematic literature review of empirical evidence on computer games and serious games." *Computers & Education*, 2012.
+5. Švábenský, V., Čeleda, P., Vykopal, J., Brišáková, S. "Cybersecurity knowledge and skills taught in Capture the Flag challenges." *Computers & Security* (Elsevier), 2021.
+6. Calderón, A., Ruiz, M. "A systematic literature review on serious games evaluation." *Computers & Education*, 2015.
